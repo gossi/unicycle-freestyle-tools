@@ -1,0 +1,20 @@
+<h2>Die NOT-ToDo-Liste</h2>
+
+<div class="row">
+	<div class="col-3">
+		<ul class="list-group">
+			{{#each bullshit.categories as |cat|}}
+				<li class="list-group-item">{{t (concat 'bullshit-bingo.categories.' cat)}}</li>
+			{{/each}}
+		</ul>
+	</div>
+
+	<div class="col-9">
+		{{#each bullshit.categories as |cat|}}
+			<h3 id="cat-{{cat}}">{{t (concat 'bullshit-bingo.categories.' cat)}}</h3>
+			{{#each (filter-by 'category' cat bullshit.all) as |fact|}}
+				{{fact.id}}
+			{{/each}}
+		{{/each}}
+	</div>
+</div>

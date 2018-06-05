@@ -6,6 +6,10 @@ const Router = EmberRouter.extend({
   rootURL: config.rootURL
 });
 
-Router.map(function() {});
+Router.map(function () {
+	this.route('freestyle-bullshit-bingo', function () {
+		this.route('not-todo-list');
+	});
+});
 
 export default Router;

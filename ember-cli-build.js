@@ -25,13 +25,26 @@ module.exports = function (defaults) {
 		}
 	});
 
-	// funnel bootstrap 4 scss files in
-	// const bootstrapTree = new Funnel('node_modules/bootstrap/scss', {
-	// 	destDir: 'bootstrap'
-	// });
-	// app.trees.styles = mergeTrees([app.trees.styles, bootstrapTree]);
+	app.getSrc = function () {
+		let rawSrcTree = this.trees.src;
 
-	// console.log(bootstrapTree);
+		if (!rawSrcTree) {
+			return null;
+		}
+
+		const bootstrapTree = new Funnel('node_modules/bootstrap/scss', {
+			destDir: 'src/ui/styles/bootstrap',
+			annotation: 'Bootstrap'
+		});
+
+		const src = new Funnel(rawSrcTree, {
+			destDir: 'src',
+		});
+
+		return mergeTrees([src, bootstrapTree], {
+			overwrite: true
+		});
+	};
 
 	return app.toTree();
 };

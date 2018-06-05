@@ -16,9 +16,6 @@ module.exports = function (environment) {
 				// Here you can enable experimental features on an ember canary build
 				// e.g. 'with-controller': true
 				'ember-module-unification': true,
-				'ember-metal-tracked-properties': true,
-				// 'ember-glimmer-angle-bracket-invocation': true,
-				EMBER_GLIMMER_ANGLE_BRACKET_INVOCATION: true,
 				EMBER_METAL_TRACKED_PROPERTIES: true
 			},
 			EXTEND_PROTOTYPES: {
