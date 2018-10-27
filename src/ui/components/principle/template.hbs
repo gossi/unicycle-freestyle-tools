@@ -1,0 +1,18 @@
+<div class="card principle" id="{{@principle.id}}">
+	<div class="card-header {{if (not this.open) 'closed'}}" onclick={{action this.toggle}}>
+		<FaLight @icon={{if this.open 'caret-down' 'caret-right'}} @fw=true />
+
+		{{t (concat 'bullshit-bingo.principles.' @principle.id '.title')}}
+
+		{{#each @principle.tags as |tag|}}
+			<span class="badge badge-secondary float-right">{{t (concat 'bullshit-bingo.tags.' tag)}}</span>
+		{{/each}}
+	</div>
+	<div class="card-body {{if this.open 'd-block' 'd-none'}}">
+		{{#if @principle.alias}}
+			{{t 'bullshit-bingo.alias-of'}}: <a href="#{{@principle.alias}}">{{t (concat 'bullshit-bingo.principles.' @principle.alias '.title')}}</a>
+		{{else}}
+			{{t (concat 'bullshit-bingo.principles.' @principle.id '.description')}}
+		{{/if}}
+	</div>
+</div>

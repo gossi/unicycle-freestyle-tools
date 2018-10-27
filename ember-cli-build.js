@@ -46,5 +46,15 @@ module.exports = function (defaults) {
 		});
 	};
 
+	// const bootstrapTree = new Funnel('node_modules/bootstrap/scss', {
+	// 	destDir: 'src/ui/styles/bootstrap',
+	// 	annotation: 'Bootstrap'
+	// });
+
+	// app.trees.src = mergeTrees([app.trees.src, bootstrapTree], {
+	// 	annotation: 'Adding Bootstrap',
+	// 	overwrite: true
+	// });
+
 	return app.toTree();
 };

@@ -18,3 +18,7 @@ insert_final_newline = false
 
 [*.{diff,md}]
 trim_trailing_whitespace = false
+
+[*.yaml]
+ident_style = space
+ident_size = 2

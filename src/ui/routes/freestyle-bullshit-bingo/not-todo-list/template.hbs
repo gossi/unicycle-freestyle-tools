@@ -3,18 +3,20 @@
 <div class="row">
 	<div class="col-3">
 		<ul class="list-group">
-			{{#each bullshit.categories as |cat|}}
-				<li class="list-group-item">{{t (concat 'bullshit-bingo.categories.' cat)}}</li>
+			{{#each this.bullshit.tags as |tag|}}
+				<li class="list-group-item list-group-item-action {{if (eq this.tag tag) 'active'}}" {{action 'filterTag' tag}}>
+					{{t (concat 'bullshit-bingo.tags.' tag)}}
+				</li>
 			{{/each}}
 		</ul>
 	</div>
 
 	<div class="col-9">
-		{{#each bullshit.categories as |cat|}}
-			<h3 id="cat-{{cat}}">{{t (concat 'bullshit-bingo.categories.' cat)}}</h3>
-			{{#each (filter-by 'category' cat bullshit.all) as |fact|}}
-				{{fact.id}}
-			{{/each}}
+		{{#each this.principles as |principle|}}
+			{{!-- <h3 id="cat-{{cat}}">{{t (concat 'bullshit-bingo.categories.' cat)}}</h3> --}}
+			{{!-- {{#each (filter-by 'category' cat bullshit.all) as |fact|}} --}}
+				<Principle @principle={{principle}} class="mb-3"/>
+			{{!-- {{/each}} --}}
 		{{/each}}
 	</div>
 </div>

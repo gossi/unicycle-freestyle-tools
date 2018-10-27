@@ -1,0 +1,5 @@
+<div class="bingo">
+	{{#each this.principles as |principle|}}
+		<Tile @principle={{principle}} @selection={{this.selection}} @winner={{this.winner}} @bingo={{this}} />
+	{{/each}}
+</div>

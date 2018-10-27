@@ -8,6 +8,7 @@ const Router = EmberRouter.extend({
 
 Router.map(function () {
 	this.route('freestyle-bullshit-bingo', function () {
+		this.route('play');
 		this.route('not-todo-list');
 	});
 });

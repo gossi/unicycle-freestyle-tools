@@ -1,1 +1,18 @@
 @import 'bootstrap/bootstrap';
+@import 'bullshit/bingo';
+
+.principle {
+	margin-bottom: 16px;
+
+	& .card-header {
+		cursor: pointer;
+
+		&.closed {
+			border-bottom: 0;
+		}
+
+		.badge {
+			margin-left: 5px;
+		}
+	}
+}

@@ -1,0 +1,26 @@
+.bingo {
+	display: grid;
+	grid-template-rows: repeat(5, 1fr);
+	grid-template-columns: repeat(5, 1fr);
+
+	.tile {
+		border: 1px solid grey;
+		display: flex;
+		align-items: center;
+		text-align: center;
+		justify-content: center;
+		padding: 0.25rem;
+		font-size: 80%;
+		hyphens: auto;
+
+		&.selected {
+			border-color: green;
+			background-color: lightgrey;
+		}
+
+		&.winner {
+			border-color: orange;
+			background-color: lightgrey;
+		}
+	}
+}
