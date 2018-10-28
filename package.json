@@ -12,7 +12,7 @@
   "repository": "",
   "scripts": {
     "ember": "EMBER_CLI_BROCCOLI_2=true EMBER_CLI_SYSTEM_TEMP=true EMBER_CLI_MODULE_UNIFICATION=true node_modules/.bin/ember",
-    "build": "ember build",
+    "build": "yarn ember build",
     "lint:js": "eslint ./*.js app blueprints config lib server tests",
     "start": "yarn ember serve",
     "test": "ember test"
