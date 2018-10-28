@@ -18,4 +18,5 @@ RUN yarn
 COPY . .
 
 # Build and export the app
-RUN yarn build && yarn export -o /public
+RUN yarn build
+RUN mv ./dist /public

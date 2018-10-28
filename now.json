@@ -1,5 +1,8 @@
 {
+	"name": "freestyle-tools",
+	"alias": "freestyle-tools",
 	"type": "static",
+	"public": true,
 	"build": {
 		"env": {
 			"FA_TOKEN": "@fa-token"
