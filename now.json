@@ -1,6 +1,6 @@
 {
 	"name": "freestyle-tools",
-	"alias": "freestyle-tools",
+	"alias": "freestyle-tools.einradfahren.de",
 	"type": "static",
 	"public": true,
 	"build": {
