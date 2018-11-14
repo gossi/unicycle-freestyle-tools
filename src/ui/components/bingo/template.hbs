@@ -3,10 +3,11 @@
 		<div>
 			<button type="button" class="btn btn-outline-secondary" onclick={{action this.toggle}}>
 				{{if (eq this.display 'game') (t 'bullshit-bingo.counter') (t 'bullshit-bingo.play')}}
-			</button>
-			Counter: {{this.activeCounter.name}}
+			</button><br>
+			Counter: {{this.activeCounter.name}} <span class="badge badge-info">{{this.activeCounter.count}}</span>
 		</div>
 		<div>
+			{{#if this.finished}}
 			<span class="bingo-text {{if this.finished 'bingo-text-visible'}}">
 				<span class="bingo-text-b">B</span>
 				<span class="bingo-text-i">i</span>
@@ -15,11 +16,14 @@
 				<span class="bingo-text-o">o</span>
 				<span class="bingo-text-ex">!</span>
 			</span>
-			Aktuelles Spiel:
-			<button type="button" class="btn btn-outline-info" onclick={{action this.reset}}>Reset</button>
-			{{#if this.finished}}
-				<button type="button" class="btn btn-outline-success" onclick={{action this.newGame}}>Neues Spiel</button>
 			{{/if}}
+		</div>
+		<div>
+			<span class="float-right">Aktuelles Spiel:</span><br>
+			{{#if this.finished}}
+				<button type="button" class="btn btn-outline-success mr-2" onclick={{action this.newGame}}>Neues Spiel</button>
+			{{/if}}
+			<button type="button" class="btn btn-outline-info float-right" onclick={{action this.reset}}>Reset</button>
 		</div>
 	</div>
 
@@ -38,15 +42,15 @@
 
 					</span>
 					<span class="counter-count">{{counter.count}}</span>
-					<span><FaLight @icon="trash"/></span>
+					<span onclick={{action this.deleteCounter id}}><FaLight @icon="trash"/></span>
 				</div>
 			{{/each-in}}
 
 			<div class="alert alert-success counter-new">
 				<label for="counter-new">{{t 'bullshit-bingo.newCounter'}}</label>
 
-				<input id="conter-new" class="form-control">
-				<FaLight @icon="plus"/>
+				<input id="counter-new" class="form-control">
+				<span onclick={{action this.newCounter}}><FaLight @icon="plus"/></span>
 			</div>
 		</div>
 	{{/if}}

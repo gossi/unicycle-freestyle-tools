@@ -2,6 +2,7 @@ import Component, { tracked } from 'sparkles-component';
 import BullshitService, { Principle } from 'freestyle-tools/services/bullshit';
 import { service } from '@ember-decorators/service';
 import uuid from 'uuid';
+import { observes } from '@ember-decorators/object';
 
 interface Args {
 }
@@ -26,6 +27,8 @@ export default class BingoComponent extends Component<Args> {
 
 	private static STORAGE_COUNTER: string = 'bullshit_bingo.counter';
 	private static STORAGE_ACTIVE_COUNTER_ID: string = 'bullshit_bingo.active_counter_id';
+	private static STORAGE_PRINCIPLES: string = 'bullshit_bingo.principles';
+	private static STORAGE_SELECTION: string = 'bullshit_bingo.selection';
 
 	constructor(props: Args) {
 		super(props);
@@ -52,7 +55,14 @@ export default class BingoComponent extends Component<Args> {
 
 	didInsertElement() {
 		super.didInsertElement();
-		this.start();
+
+		const principles = window.localStorage.getItem(BingoComponent.STORAGE_PRINCIPLES);
+
+		if (principles) {
+			this.load();
+		} else {
+			this.newGame();
+		}
 	}
 
 	toggle() {
@@ -69,6 +79,7 @@ export default class BingoComponent extends Component<Args> {
 	start() {
 		this.clear();
 		this.principles = this.bullshit.all.sort(() => .5 - Math.random()).slice(0, 25);
+		this.persistGame();
 	}
 
 	reset() {
@@ -76,7 +87,26 @@ export default class BingoComponent extends Component<Args> {
 	}
 
 	newGame() {
+		this.incrementActiveCounter();
 		this.start();
+	}
+
+	load() {
+		const principles = window.localStorage.getItem(BingoComponent.STORAGE_PRINCIPLES);
+		if (principles) {
+			this.principles = JSON.parse(principles);
+		}
+
+		const selection = window.localStorage.getItem(BingoComponent.STORAGE_SELECTION);
+		if (selection) {
+			this.selection.clear();
+
+			for (const p of JSON.parse(selection)) {
+				this.selection.add(this.principles.findBy('id', p.id));
+			}
+
+			this.selection = this.selection;
+		}
 	}
 
 	select(principle: Principle) {
@@ -88,9 +118,12 @@ export default class BingoComponent extends Component<Args> {
 
 		this.finished = false;
 
-		this.selection = this.selection;
 		this.winner.clear();
+		this.selection = this.selection;
+	}
 
+	@observes('selection')
+	selectionListener() {
 		const winner = this.getWinner();
 		if (winner !== undefined) {
 			const [line, index] = winner;
@@ -127,9 +160,17 @@ export default class BingoComponent extends Component<Args> {
 
 			this.finished = true;
 		}
+
+		if (this.selection.size > 0) {
+			this.persistGame();
+		}
 	}
 
-	getWinner(): [string, number] | undefined {
+	getWinner(): [string, number] | undefined {
+		if (this.principles.length === 0) {
+			return undefined;
+		}
+
 		const rows: Array<Array<boolean>> = [[], [], [], [], []];
 		const cols: Array<Array<boolean>> = [[], [], [], [], []];
 		const cross: Array<Array<boolean>> = [[], []];
@@ -174,6 +215,11 @@ export default class BingoComponent extends Component<Args> {
 		return col === 0 ? 5 : col;
 	}
 
+	private persistGame() {
+		window.localStorage.setItem(BingoComponent.STORAGE_PRINCIPLES, JSON.stringify(this.principles));
+		window.localStorage.setItem(BingoComponent.STORAGE_SELECTION, JSON.stringify(Array.from(this.selection)));
+	}
+
 	// counter logic
 	activateCounter(id: string) {
 		if (this.counters[id]) {
@@ -184,11 +230,17 @@ export default class BingoComponent extends Component<Args> {
 
 	updateCounter(id: string, event: FocusEvent) {
 		this.counters[id].name = event.target.textContent;
+		if (id === this.activeCounter.id) {
+			this.activeCounter = this.counters[id];
+		}
 		this.persistCounters();
 	}
 
 	incrementCounter(id: string) {
 		this.counters[id].count++;
+		if (id === this.activeCounter.id) {
+			this.activeCounter = this.counters[id];
+		}
 		this.persistCounters();
 	}
 
@@ -196,7 +248,26 @@ export default class BingoComponent extends Component<Args> {
 		this.incrementCounter(this.activeCounter.id);
 	}
 
+	newCounter() {
+		const input = document.getElementById('counter-new');
+
+		const cnt = {
+			id: uuid(),
+			name: input.value,
+			count: 0
+		};
+
+		this.counters[cnt.id] = cnt;
+		this.persistCounters();
+	}
+
+	deleteCounter(id: string) {
+		delete this.counters[id];
+		this.persistCounters();
+	}
+
 	persistCounters() {
+		this.counters = this.counters;
 		window.localStorage.setItem(BingoComponent.STORAGE_COUNTER, JSON.stringify(this.counters));
 		window.localStorage.setItem(BingoComponent.STORAGE_ACTIVE_COUNTER_ID, this.activeCounter.id);
 	}
