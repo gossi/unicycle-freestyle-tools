@@ -1,206 +1,210 @@
 {
-  "bullshit-bingo": {
-    "alias-of": "Alias von",
-    "tags": {
-      "choreography": "Choreographie",
-      "tricks": "Tricks",
-      "flow": "Flow",
-      "posture": "Körperhaltung",
-      "misc": "Sonstiges"
-    },
-    "principles": {
-      "music-in-background": {
-        "title": "Musik läuft nur im Hintergrund",
-        "description": "todo"
-      },
-      "similar-arm-motions": {
-        "title": "Armbewegungen gibt es auch in anderen Küren",
-        "description": "todo"
-      },
-      "lyrics-to-gestures": {
-        "title": "Etwas, was in der Musik besungen wird, wird umgesetzt",
-        "description": "todo"
-      },
-      "audible-cut": {
-        "title": "Musikschnitt ist hörbar",
-        "description": "todo"
-      },
-      "tricks-only": {
-        "title": "Tricks only",
-        "description": "todo"
-      },
-      "rider-role-diff": {
-        "title": "Fahrer und gespielte Rolle sind zwei verschiedene Figuren",
-        "description": "todo"
-      },
-      "arm-motions-repeat": {
-        "title": "Armbewegungen wiederholen sich während der Kür auffällig",
-        "description": "todo"
-      },
-      "arms-only": {
-        "title": "Nur Armbewegungen, der Körper wird sonst nicht für Performance eingesetzt",
-        "description": "todo"
-      },
-      "palms-extended": {
-        "title": "Handflächen sind nach hinten abgeknickt",
-        "description": "todo"
-      },
-      "foot-not-pointed": {
-        "title": "Fußspitzen nicht gestreckt",
-        "description": "todo"
-      },
-      "standup-hand-on-seat": {
-        "title": "Stand up Tricks mit Hand am Sattel",
-        "description": "todo"
-      },
-      "arabesque-no-bowtension": {
-        "title": "Arabesque ohne Bogenspannung",
-        "description": "todo"
-      },
-      "no-body-tension": {
-        "title": "Keine Körperspannung",
-        "description": "todo"
-      },
-      "rider-watches-ground": {
-        "title": "Fahrer schaut in den Boden",
-        "description": "todo"
-      },
-      "same-posture": {
-        "title": "Fahrer hat unveränderte Körperhaltung",
-        "description": "todo"
-      },
-      "same-mimic": {
-        "title": "Fahrer hat gleichbleibende Mimik",
-        "description": "todo"
-      },
-      "x-style": {
-        "title": "X-Style",
-        "description": "The routine is an X-Style run"
-      },
-      "arabesque-hand-on-seat": {
-        "title": "Arabesque mit Hand am Sattel",
-        "description": "todo"
-      },
-      "routine-has-theme": {
-        "title": "Kür hat ein Thema",
-        "description": "todo"
-      },
-      "no-content": {
-        "title": "Kür hat keinen Inhalt",
-        "description": "todo"
-      },
-      "provocative-clothes": {
-        "title": "Fahrer hofft durch knappe Klamotten Punkte bei der Jury rauszuholen",
-        "description": "todo"
-      },
-      "ineffective-room-usage": {
-        "title": "Fahrer nutzen Raum nicht aus",
-        "description": "todo"
-      },
-      "perma-grin": {
-        "title": "Fahrer hat ein Dauergrinsen, das eher eine Grimasse ist",
-        "description": "todo"
-      },
-      "overwhelmed-with-costume": {
-        "title": "Fahrer ist mit Kostüm überfordert",
-        "description": "todo"
-      },
-      "no-brainer-props": {
-        "title": "Fahrer verwendet Nichts-sagende Requisiten",
-        "description": "todo"
-      },
-      "music-charts": {
-        "title": "Fahrer fährt zu Dirty Dancing / Fluch der Karibik / Phantom der Oper / Frozen / ...",
-        "description": "todo"
-      },
-      "rider-cannot-handle-prop": {
-        "title": "Fahrer kann mit Requisit nicht umgehen",
-        "description": "todo"
-      },
-      "rider-cannot-hide-anger": {
-        "title": "Fahrer kann Ärger über Stürze nicht verbergen",
-        "description": "todo"
-      },
-      "routine-no-dynamics": {
-        "title": "Die Kür ist monoton, hat keine Dynamik",
-        "description": "todo"
-      },
-      "routine-no-tension": {
-        "title": "Die Kür hat keine Spannung",
-        "description": "todo"
-      },
-      "tricks-mainstream": {
-        "title": "Die Tricks der Kür sind Mainstream… und nur Mainstream",
-        "description": "todo"
-      },
-      "tricks-for-counts": {
-        "title": "Die Tricks sind in der Kür damit es viele sind, nicht weil die Tricks passen",
-        "description": "todo"
-      },
-      "techno": {
-        "title": "Krasse Techno-Musik mit viel Bums aber sonst nix",
-        "description": "todo"
-      },
-      "unknown-musicvideo": {
-        "title": "Ein Musikvideo wird umgesetzt (… keiner kennt’s)",
-        "description": "todo"
-      },
-      "dont-do-the-obvious": {
-        "title": "Don’t do the obvious!",
-        "description": "todo"
-      },
-      "too-many-songs": {
-        "title": "Kür hat zu viele Lieder",
-        "description": "todo"
-      },
-      "national-songs-at-international": {
-        "title": "Nationale Lieder auf internationaler Meisterschaft",
-        "description": "todo"
-      },
-      "costume-most-important": {
-        "title": "Kostüm ist das Wichtigste",
-        "description": "todo"
-      },
-      "standardskill": {
-        "title": "Kür ist ein standardskill",
-        "description": "todo"
-      },
-      "spin-no-posture": {
-        "title": "Spin/Kurve mit nicht ausgerichtetem Oberkörper ",
-        "description": "todo"
-      },
-      "costume-change": {
-        "title": "Kostümwechsel",
-        "description": "todo"
-      },
-      "groupies": {
-        "title": "Kreischende Groupies",
-        "description": "todo"
-      },
-      "costume-problems": {
-        "title": "Kostüm macht Probleme",
-        "description": "todo"
-      },
-      "fraction-clapping": {
-        "title": "Fraktionenklatschen",
-        "description": "todo"
-      },
-      "dont-deliever-to-michael-jackson": {
-        "title": "Fucked up a Michael Jackson song",
-        "description": "todo"
-      },
-      "kids-on-barbie-girl": {
-        "title": "Kinder fahren auf Barbie Girl",
-        "description": "todo"
-      },
-      "prehops": {
-        "title": "Ewig viele Prehops oder hops zwischen, bevor und während Hopping-Kombinationen",
-        "description": "todo"
-      },
-      "picked-theme-failed-theme": {
-        "title": "Thema gewählt. Thema verfehlt.",
-        "description": "todo"
-      }
-    }
-  }
+	"bullshit-bingo": {
+		"play": "Spielen",
+		"alias-of": "Alias von",
+		"counter": "Zähler",
+		"defaultCounter": "Mein Zähler",
+		"newCounter": "Neuer Zähler",
+		"tags": {
+			"choreography": "Choreographie",
+			"tricks": "Tricks",
+			"flow": "Flow",
+			"posture": "Körperhaltung",
+			"misc": "Sonstiges"
+		},
+		"principles": {
+			"music-in-background": {
+				"title": "Musik läuft nur im Hintergrund",
+				"description": "todo"
+			},
+			"similar-arm-motions": {
+				"title": "Armbewegungen gibt es auch in anderen Küren",
+				"description": "todo"
+			},
+			"lyrics-to-gestures": {
+				"title": "Etwas, was in der Musik besungen wird, wird umgesetzt",
+				"description": "todo"
+			},
+			"audible-cut": {
+				"title": "Musikschnitt ist hörbar",
+				"description": "todo"
+			},
+			"tricks-only": {
+				"title": "Tricks only",
+				"description": "todo"
+			},
+			"rider-role-diff": {
+				"title": "Fahrer und gespielte Rolle sind zwei verschiedene Figuren",
+				"description": "todo"
+			},
+			"arm-motions-repeat": {
+				"title": "Armbewegungen wiederholen sich während der Kür auffällig",
+				"description": "todo"
+			},
+			"arms-only": {
+				"title": "Nur Armbewegungen, der Körper wird sonst nicht für Performance eingesetzt",
+				"description": "todo"
+			},
+			"palms-extended": {
+				"title": "Handflächen sind nach hinten abgeknickt",
+				"description": "todo"
+			},
+			"foot-not-pointed": {
+				"title": "Fußspitzen nicht gestreckt",
+				"description": "todo"
+			},
+			"standup-hand-on-seat": {
+				"title": "Stand up Tricks mit Hand am Sattel",
+				"description": "todo"
+			},
+			"arabesque-no-bowtension": {
+				"title": "Arabesque ohne Bogenspannung",
+				"description": "todo"
+			},
+			"no-body-tension": {
+				"title": "Keine Körperspannung",
+				"description": "todo"
+			},
+			"rider-watches-ground": {
+				"title": "Fahrer schaut in den Boden",
+				"description": "todo"
+			},
+			"same-posture": {
+				"title": "Fahrer hat unveränderte Körperhaltung",
+				"description": "todo"
+			},
+			"same-mimic": {
+				"title": "Fahrer hat gleichbleibende Mimik",
+				"description": "todo"
+			},
+			"x-style": {
+				"title": "X-Style",
+				"description": "The routine is an X-Style run"
+			},
+			"arabesque-hand-on-seat": {
+				"title": "Arabesque mit Hand am Sattel",
+				"description": "todo"
+			},
+			"routine-has-theme": {
+				"title": "Kür hat ein Thema",
+				"description": "todo"
+			},
+			"no-content": {
+				"title": "Kür hat keinen Inhalt",
+				"description": "todo"
+			},
+			"provocative-clothes": {
+				"title": "Fahrer hofft durch knappe Klamotten Punkte bei der Jury rauszuholen",
+				"description": "todo"
+			},
+			"ineffective-room-usage": {
+				"title": "Fahrer nutzen Raum nicht aus",
+				"description": "todo"
+			},
+			"perma-grin": {
+				"title": "Fahrer hat ein Dauergrinsen, das eher eine Grimasse ist",
+				"description": "todo"
+			},
+			"overwhelmed-with-costume": {
+				"title": "Fahrer ist mit Kostüm überfordert",
+				"description": "todo"
+			},
+			"no-brainer-props": {
+				"title": "Fahrer verwendet Nichts-sagende Requisiten",
+				"description": "todo"
+			},
+			"music-charts": {
+				"title": "Fahrer fährt zu Dirty Dancing / Fluch der Karibik / Phantom der Oper / Frozen / ...",
+				"description": "todo"
+			},
+			"rider-cannot-handle-prop": {
+				"title": "Fahrer kann mit Requisit nicht umgehen",
+				"description": "todo"
+			},
+			"rider-cannot-hide-anger": {
+				"title": "Fahrer kann Ärger über Stürze nicht verbergen",
+				"description": "todo"
+			},
+			"routine-no-dynamics": {
+				"title": "Die Kür ist monoton, hat keine Dynamik",
+				"description": "todo"
+			},
+			"routine-no-tension": {
+				"title": "Die Kür hat keine Spannung",
+				"description": "todo"
+			},
+			"tricks-mainstream": {
+				"title": "Die Tricks der Kür sind Mainstream… und nur Mainstream",
+				"description": "todo"
+			},
+			"tricks-for-counts": {
+				"title": "Die Tricks sind in der Kür damit es viele sind, nicht weil die Tricks passen",
+				"description": "todo"
+			},
+			"techno": {
+				"title": "Krasse Techno-Musik mit viel Bums aber sonst nix",
+				"description": "todo"
+			},
+			"unknown-musicvideo": {
+				"title": "Ein Musikvideo wird umgesetzt (… keiner kennt’s)",
+				"description": "todo"
+			},
+			"dont-do-the-obvious": {
+				"title": "Don’t do the obvious!",
+				"description": "todo"
+			},
+			"too-many-songs": {
+				"title": "Kür hat zu viele Lieder",
+				"description": "todo"
+			},
+			"national-songs-at-international": {
+				"title": "Nationale Lieder auf internationaler Meisterschaft",
+				"description": "todo"
+			},
+			"costume-most-important": {
+				"title": "Kostüm ist das Wichtigste",
+				"description": "todo"
+			},
+			"standardskill": {
+				"title": "Kür ist ein standardskill",
+				"description": "todo"
+			},
+			"spin-no-posture": {
+				"title": "Spin/Kurve mit nicht ausgerichtetem Oberkörper ",
+				"description": "todo"
+			},
+			"costume-change": {
+				"title": "Kostümwechsel",
+				"description": "todo"
+			},
+			"groupies": {
+				"title": "Kreischende Groupies",
+				"description": "todo"
+			},
+			"costume-problems": {
+				"title": "Kostüm macht Probleme",
+				"description": "todo"
+			},
+			"fraction-clapping": {
+				"title": "Fraktionenklatschen",
+				"description": "todo"
+			},
+			"dont-deliever-to-michael-jackson": {
+				"title": "Fucked up a Michael Jackson song",
+				"description": "todo"
+			},
+			"kids-on-barbie-girl": {
+				"title": "Kinder fahren auf Barbie Girl",
+				"description": "todo"
+			},
+			"prehops": {
+				"title": "Ewig viele Prehops oder hops zwischen, bevor und während Hopping-Kombinationen",
+				"description": "todo"
+			},
+			"picked-theme-failed-theme": {
+				"title": "Thema gewählt. Thema verfehlt.",
+				"description": "todo"
+			}
+		}
+	}
 }

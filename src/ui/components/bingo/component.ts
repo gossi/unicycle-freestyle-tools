@@ -1,9 +1,15 @@
 import Component, { tracked } from 'sparkles-component';
 import BullshitService, { Principle } from 'freestyle-tools/services/bullshit';
 import { service } from '@ember-decorators/service';
+import uuid from 'uuid';
 
 interface Args {
+}
 
+interface Counter {
+	id: string;
+	name: string;
+	count: number;
 }
 
 export default class BingoComponent extends Component<Args> {
@@ -12,9 +18,36 @@ export default class BingoComponent extends Component<Args> {
 	@tracked principles: Principle[] = [];
 	@tracked selection: Set<Principle> = new Set();
 	@tracked winner: Set<Principle> = new Set();
+	@tracked finished: boolean = false;
+	@tracked display: string = 'game';
+
+	@tracked counters: {[key: string]: Counter};
+	@tracked activeCounter!: Counter;
+
+	private static STORAGE_COUNTER: string = 'bullshit_bingo.counter';
+	private static STORAGE_ACTIVE_COUNTER_ID: string = 'bullshit_bingo.active_counter_id';
 
 	constructor(props: Args) {
 		super(props);
+
+		let activeCounter = window.localStorage.getItem(BingoComponent.STORAGE_ACTIVE_COUNTER_ID);
+		const data = window.localStorage.getItem(BingoComponent.STORAGE_COUNTER);
+		this.counters = data ? JSON.parse(data) : {};
+
+		if (activeCounter && Object.keys(this.counters).includes(activeCounter)) {
+			this.activeCounter = this.counters[activeCounter];
+		}
+
+		if (Object.keys(this.counters).length === 0) {
+			const id = uuid();
+			this.counters[id] = {
+				id,
+				name: 'Standard',
+				count: 0
+			};
+			this.activeCounter = this.counters[id];
+		}
+		this.persistCounters();
 	}
 
 	didInsertElement() {
@@ -22,14 +55,28 @@ export default class BingoComponent extends Component<Args> {
 		this.start();
 	}
 
-	reset() {
+	toggle() {
+		this.display = this.display === 'game' ? 'counter' : 'game';
+	}
+
+	private clear() {
 		this.selection.clear();
 		this.winner.clear();
+		this.selection = this.selection;
+		this.finished = false;
 	}
 
 	start() {
-		this.reset();
+		this.clear();
 		this.principles = this.bullshit.all.sort(() => .5 - Math.random()).slice(0, 25);
+	}
+
+	reset() {
+		this.start();
+	}
+
+	newGame() {
+		this.start();
 	}
 
 	select(principle: Principle) {
@@ -38,6 +85,8 @@ export default class BingoComponent extends Component<Args> {
 		} else {
 			this.selection.add(principle);
 		}
+
+		this.finished = false;
 
 		this.selection = this.selection;
 		this.winner.clear();
@@ -75,8 +124,9 @@ export default class BingoComponent extends Component<Args> {
 					}
 				}
 			}
-		}
 
+			this.finished = true;
+		}
 	}
 
 	getWinner(): [string, number] | undefined {
@@ -122,5 +172,32 @@ export default class BingoComponent extends Component<Args> {
 	private getColumn(index: number): number {
 		const col = index % 5;
 		return col === 0 ? 5 : col;
+	}
+
+	// counter logic
+	activateCounter(id: string) {
+		if (this.counters[id]) {
+			this.activeCounter = this.counters[id];9
+			window.localStorage.setItem(BingoComponent.STORAGE_ACTIVE_COUNTER_ID, id);
+		}
+	}
+
+	updateCounter(id: string, event: FocusEvent) {
+		this.counters[id].name = event.target.textContent;
+		this.persistCounters();
+	}
+
+	incrementCounter(id: string) {
+		this.counters[id].count++;
+		this.persistCounters();
+	}
+
+	incrementActiveCounter() {
+		this.incrementCounter(this.activeCounter.id);
+	}
+
+	persistCounters() {
+		window.localStorage.setItem(BingoComponent.STORAGE_COUNTER, JSON.stringify(this.counters));
+		window.localStorage.setItem(BingoComponent.STORAGE_ACTIVE_COUNTER_ID, this.activeCounter.id);
 	}
 }

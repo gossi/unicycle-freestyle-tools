@@ -1,5 +1,53 @@
 <div class="bingo">
-	{{#each this.principles as |principle|}}
-		<Tile @principle={{principle}} @selection={{this.selection}} @winner={{this.winner}} @bingo={{this}} />
-	{{/each}}
+	<div class="navbar bg-light">
+		<div>
+			<button type="button" class="btn btn-outline-secondary" onclick={{action this.toggle}}>
+				{{if (eq this.display 'game') (t 'bullshit-bingo.counter') (t 'bullshit-bingo.play')}}
+			</button>
+			Counter: {{this.activeCounter.name}}
+		</div>
+		<div>
+			<span class="bingo-text {{if this.finished 'bingo-text-visible'}}">
+				<span class="bingo-text-b">B</span>
+				<span class="bingo-text-i">i</span>
+				<span class="bingo-text-n">n</span>
+				<span class="bingo-text-h">g</span>
+				<span class="bingo-text-o">o</span>
+				<span class="bingo-text-ex">!</span>
+			</span>
+			Aktuelles Spiel:
+			<button type="button" class="btn btn-outline-info" onclick={{action this.reset}}>Reset</button>
+			{{#if this.finished}}
+				<button type="button" class="btn btn-outline-success" onclick={{action this.newGame}}>Neues Spiel</button>
+			{{/if}}
+		</div>
+	</div>
+
+	{{#if (eq this.display 'game')}}
+		<div class="playfield">
+			{{#each this.principles as |principle|}}
+				<Tile @principle={{principle}} @selection={{this.selection}} @winner={{this.winner}} @bingo={{this}} />
+			{{/each}}
+		</div>
+	{{else}}
+		<div class="counters">
+			{{#each-in this.counters as |id counter|}}
+				<div class="alert alert-{{if (eq id this.activeCounter.id) 'info' 'secondary'}} counter" onClick={{action this.activateCounter id}}>
+					<span class="counter-name">
+						<span contenteditable onblur={{action this.updateCounter id}}>{{counter.name}}</span>
+
+					</span>
+					<span class="counter-count">{{counter.count}}</span>
+					<span><FaLight @icon="trash"/></span>
+				</div>
+			{{/each-in}}
+
+			<div class="alert alert-success counter-new">
+				<label for="counter-new">{{t 'bullshit-bingo.newCounter'}}</label>
+
+				<input id="conter-new" class="form-control">
+				<FaLight @icon="plus"/>
+			</div>
+		</div>
+	{{/if}}
 </div>
