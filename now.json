@@ -7,5 +7,10 @@
 		"env": {
 			"FA_TOKEN": "@fa-token"
 		}
+	},
+	"static": {
+		"rewrites": [
+			{ "source": "**", "destination": "/index.html" }
+		]
 	}
 }
